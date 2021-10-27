@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { guestRoutes, routes } from 'routes';
 import {
   selectAccessToken,
+  setUserInfo
 } from 'store/user';
 import s from './App.module.scss';
 import { LoggedInContext } from './LoggedInContext';
@@ -18,9 +19,15 @@ const App = () => {
     updateAuthHeader(accessToken);
   }, [accessToken]);
 
+  useEffect(() => {
+    if (accessToken) {
+      api.user.getMe().then(res => dispatch(setUserInfo(res)));
+    }
+  }, [accessToken, dispatch]);
+
   return (
     <BrowserRouter>
-    <div className={s.container}>
+      <div className={s.container}>
         {!accessToken ? (
           renderRoutes(guestRoutes)
         ) : (
@@ -28,7 +35,7 @@ const App = () => {
             {renderRoutes(routes)}
           </LoggedInContext>
         )}
-    </div>
+      </div>
     </BrowserRouter>
   );
 }

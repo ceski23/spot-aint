@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as auth from './auth';
+import * as user from './user';
 
 export const client = axios.create({
   baseURL: 'https://api.spotify.com/v1',
@@ -17,4 +18,5 @@ export const updateAuthHeader = (accessToken?: string) => {
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   auth,
+  user
 };
