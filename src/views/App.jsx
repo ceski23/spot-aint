@@ -1,5 +1,6 @@
 import api, { updateAuthHeader } from 'api';
 import { Sidebar } from 'components/Sidebar';
+import { useSpotify } from 'hooks/useSpotify';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
@@ -42,6 +43,8 @@ const App = () => {
 }
 
 export const LoggedInContext = ({ children }) => {
+  useSpotify();
+
   return children;
 }
 
