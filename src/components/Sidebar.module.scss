@@ -1,0 +1,83 @@
+@import 'styles/variables';
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: $background-2;
+  width: 300px;
+  height: 100%;
+  padding-top: 30px;
+
+  .appHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+
+    .logo {
+      width: 30px;
+      height: 30px;
+    }
+
+    .appTitle {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+
+    .image {
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .name {
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 30px;
+
+    .item {
+      font-size: 20px;
+      font-weight: 600;
+      color: $text;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 20px;
+      }
+
+      .text {
+        margin: 0;
+      }
+
+      &.active {
+        background-color: $nav-current;
+      }
+    }
+  }
+}

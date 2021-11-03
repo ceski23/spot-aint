@@ -1,4 +1,4 @@
-import { ReactComponent as SpotifyLogo } from 'assets/spotify.svg';
+import { ReactComponent as SpotifyLogo } from 'assets/icons/spotify.svg';
 import { Button } from 'components/Button';
 import { generateCodeChallenge, base64url, randomBytes } from 'utils';
 import s from './LoginPage.module.scss';

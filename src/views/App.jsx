@@ -1,4 +1,5 @@
 import api, { updateAuthHeader } from 'api';
+import { Sidebar } from 'components/Sidebar';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
@@ -9,7 +10,6 @@ import {
   setUserInfo
 } from 'store/user';
 import s from './App.module.scss';
-import { LoggedInContext } from './LoggedInContext';
 
 const App = () => {
   const accessToken = useSelector(selectAccessToken);
@@ -32,6 +32,7 @@ const App = () => {
           renderRoutes(guestRoutes)
         ) : (
           <LoggedInContext>
+            <Sidebar />
             {renderRoutes(routes)}
           </LoggedInContext>
         )}

@@ -1,6 +1,7 @@
 import { Button } from "components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserInfo, logout } from "store/user";
+import s from './HomePage.module.scss';
 
 export const HomePage = () => {
   const userInfo = useSelector(selectUserInfo);
@@ -11,7 +12,7 @@ export const HomePage = () => {
   }
 
   return (
-    <div>
+    <div className={s.container}>
       <h1>Witaj {userInfo.display_name}!</h1>
       <Button onClick={handleClick}>Wyloguj</Button>
     </div>
