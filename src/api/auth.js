@@ -1,4 +1,5 @@
 import { client } from "api";
+import axios from "axios";
 
 export const completeLogin = async () => {
   const params = new URLSearchParams(window.location.search);
@@ -18,4 +19,14 @@ export const completeLogin = async () => {
     }
   });
   return response.data;
+}
+
+export const refreshAccessToken = async (refreshToken) => {
+  const data = new URLSearchParams({
+    client_id: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
+    grant_type: 'refresh_token',
+    refresh_token: refreshToken
+  });
+
+  return axios.post('https://accounts.spotify.com/api/token', data).then(res => res.data);
 }

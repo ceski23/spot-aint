@@ -40,4 +40,8 @@ const App = () => {
   );
 }
 
+export const LoggedInContext = ({ children }) => {
+  return children;
+}
+
 export default App;
