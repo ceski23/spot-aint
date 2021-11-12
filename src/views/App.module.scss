@@ -1,11 +1,27 @@
 @import 'styles/variables';
 
 .container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
   height: 100vh;
   min-height: 800px;
   width: 100%;
   background-color: $background;
   color: $text;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+
+  & > * {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .player {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .sidebar {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
 }

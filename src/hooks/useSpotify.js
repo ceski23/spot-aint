@@ -1,6 +1,5 @@
+import api from 'api';
 import { useEffect, useCallback, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectAccessToken } from 'store/user';
 
 export const waitForSpotifyWebPlaybackSDKToLoad = async () => (
   new Promise((resolve) => {
@@ -13,34 +12,9 @@ export const waitForSpotifyWebPlaybackSDKToLoad = async () => (
   })
 );
 
-export const useSpotify = () => {
+export const useSpotify = (accessToken) => {
   const player = useRef(null);
-  const accessToken = useSelector(selectAccessToken);
   const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    const playerReadyListener = ({ device_id }) => {
-      console.info('Player ready', device_id);
-    };
-
-    const stateChangedListener = (currentState?: State) => {
-      if (currentState && currentState.track_window.current_track) {
-        console.info('State changed', currentState);
-      }
-    };
-
-    if (player.current) {
-      player.current.addListener('player_state_changed', stateChangedListener);
-      player.current.addListener('ready', playerReadyListener);
-    }
-
-    return () => {
-      if (player.current) {
-        player.current.removeListener('player_state_changed', stateChangedListener);
-        player.current.removeListener('ready', playerReadyListener);
-      }
-    };
-  }, [player]);
 
   const setupPlayer = useCallback(async () => {
     try {
@@ -62,6 +36,7 @@ export const useSpotify = () => {
         if (connected) {
           player.current.addListener('ready', ({ device_id }: any) => {
             setIsReady(true);
+            api.player.transferPlayback({ deviceId: device_id });
             player.current.removeListener('ready');
           });
         }
@@ -71,7 +46,9 @@ export const useSpotify = () => {
     }
   }, [accessToken]);
 
-  useEffect(() => { setupPlayer(); }, [setupPlayer]);
+  useEffect(() => {
+    setupPlayer();
+  }, [setupPlayer]);
 
   return {
     player,

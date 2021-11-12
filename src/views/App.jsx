@@ -1,7 +1,7 @@
 import api, { updateAuthHeader } from 'api';
+import { Player } from 'components/Player';
 import { Sidebar } from 'components/Sidebar';
-import { useSpotify } from 'hooks/useSpotify';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import { BrowserRouter } from 'react-router-dom';
@@ -15,6 +15,11 @@ import s from './App.module.scss';
 const App = () => {
   const accessToken = useSelector(selectAccessToken);
   const dispatch = useDispatch();
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (accessToken) setLoggedIn(true);
+  }, [accessToken]);
 
   useEffect(() => {
     updateAuthHeader(accessToken);
@@ -29,23 +34,18 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className={s.container}>
-        {!accessToken ? (
+        {!loggedIn ? (
           renderRoutes(guestRoutes)
         ) : (
-          <LoggedInContext>
-            <Sidebar />
+          <>
+            <Sidebar className={s.sidebar} />
             {renderRoutes(routes)}
-          </LoggedInContext>
+            <Player className={s.player} />
+          </>
         )}
       </div>
     </BrowserRouter>
   );
-}
-
-export const LoggedInContext = ({ children }) => {
-  useSpotify();
-
-  return children;
 }
 
 export default App;

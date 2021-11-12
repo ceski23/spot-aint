@@ -16,7 +16,13 @@ export const FavouritesPage = () => {
   );
 
   const handleTrackClick = (track) => {
+    const trackIdx = data.items.findIndex(item => item.track.uri === track.uri);
+    const uris = data.items.map(item => item.track.uri);
 
+    api.player.startPlayback({
+      uris,
+      offset: { position: trackIdx }
+    });
   }
 
   return (
