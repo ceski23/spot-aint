@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as auth from './auth';
 import * as user from './user';
+import * as tracks from './tracks';
 // import { store } from '../store';
 // import { setAccessToken } from "store/user";
 
@@ -39,5 +40,6 @@ client.interceptors.response.use(
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   auth,
-  user
+  user,
+  tracks,
 };

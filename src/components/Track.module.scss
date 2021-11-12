@@ -1,0 +1,84 @@
+@import 'styles/variables';
+
+.container {
+  display: grid;
+  grid-template-columns: 20px 3fr 2fr 200px 60px;
+  gap: 80px;
+  width: calc(100% - 40px);
+  margin: 0 20px;
+  padding: 10px 30px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $background-2;
+  }
+
+  .index {
+    display: block;
+    margin: 0;
+    text-align: center;
+  }
+
+  .title {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    margin: 0;
+    column-gap: 20px;
+
+    .cover {
+      width: 40px;
+      height: 40px;
+      grid-column: 1;
+      grid-row: 1 / -1;
+      align-self: center;
+      justify-self: center;
+    }
+
+    .name {
+      margin: 0;
+      grid-column: 2;
+      grid-row: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 150px;
+    }
+
+    .artists {
+      opacity: 0.6;
+      margin: 0;
+      grid-column: 2;
+      grid-row: 2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+  }
+
+  .album {
+    display: block;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 150px;
+  }
+
+  .added {
+    display: block;
+    margin: 0;
+  }
+
+  .duration {
+    display: block;
+    margin: 0;
+    text-align: center;
+  }
+}
