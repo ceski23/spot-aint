@@ -15,11 +15,6 @@ import s from './App.module.scss';
 const App = () => {
   const accessToken = useSelector(selectAccessToken);
   const dispatch = useDispatch();
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (accessToken) setLoggedIn(true);
-  }, [accessToken]);
 
   useEffect(() => {
     updateAuthHeader(accessToken);
@@ -34,7 +29,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className={s.container}>
-        {!loggedIn ? (
+        {!accessToken ? (
           renderRoutes(guestRoutes)
         ) : (
           <>
