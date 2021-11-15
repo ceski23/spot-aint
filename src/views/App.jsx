@@ -15,9 +15,12 @@ import s from './App.module.scss';
 const App = () => {
   const accessToken = useSelector(selectAccessToken);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('start update header');
     updateAuthHeader(accessToken);
+    setLoading(false);
   }, [accessToken]);
 
   useEffect(() => {
@@ -29,15 +32,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className={s.container}>
-        {!accessToken ? (
-          renderRoutes(guestRoutes)
-        ) : (
+        {!accessToken ? renderRoutes(guestRoutes) : (!loading) ? (
           <>
             <Sidebar className={s.sidebar} />
             {renderRoutes(routes)}
             <Player className={s.player} />
           </>
-        )}
+        ) : null}
       </div>
     </BrowserRouter>
   );
