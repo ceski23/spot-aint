@@ -19,9 +19,9 @@ const slice = createSlice({
   reducers: {
     setPlaybackState: (state, { payload }) => {
       if (payload.timestamp > state.state.timestamp) {
-        state.state.duration = payload.duration;
+        if (payload.duration !== undefined) state.state.duration = payload.duration;
         state.state.paused = payload.paused;
-        state.state.position = payload.position;
+        if (payload.position !== undefined) state.state.position = payload.position;
         state.state.current_track = payload.track_window.current_track;
         state.state.timestamp = payload.timestamp;
         state.state.disallows = payload.disallows;

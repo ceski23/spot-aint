@@ -70,8 +70,13 @@ export const Player = ({ className }) => {
 
   useEffect(() => {
     const handleStateChanged = (state) => {
-      console.log(state);
-      if (state) dispatch(setPlaybackState(state));
+      if (state) {
+        if (!state.paused) {
+          delete state.position;
+          delete state.duration;
+        }
+        dispatch(setPlaybackState(state));
+      }
     }
 
     if (player.current) player.current.addListener('player_state_changed', handleStateChanged);
