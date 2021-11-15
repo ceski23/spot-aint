@@ -9,7 +9,7 @@ import { ReactComponent as VolumeDownIcon } from 'assets/icons/volume-down.svg';
 import { ReactComponent as VolumeUpIcon } from 'assets/icons/volume-up.svg';
 import s from './Player.module.scss';
 import { Slider } from './Slider';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPlaybackState, selectPlaybackVolume, setPlaybackState, setVolume } from 'store/player';
 import { useSpotify } from 'hooks/useSpotify';

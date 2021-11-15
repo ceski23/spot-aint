@@ -26,7 +26,7 @@ export const Slider = ({
 
   useEffect(() => {
     if (internalValue !== value && !isChanging) setInternalValue(value);
-  }, [value]);
+  }, [value, internalValue, isChanging]);
 
   return (
     <input
