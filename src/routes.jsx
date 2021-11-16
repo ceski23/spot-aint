@@ -3,11 +3,13 @@ import { AuthCallback } from 'views/AuthCallback'
 import { Redirect } from "react-router-dom"
 import { HomePage } from "views/HomePage"
 import { FavouritesPage } from "views/FavouritesPage"
+import { PlaylistPage } from "views/PlaylistPage"
 
 export const urls = {
   authorize: '/callback',
   home: '/',
-  favourites: '/favourites'
+  favourites: '/favourites',
+  playlist: '/playlist/:id'
 }
 
 export const guestRoutes = [
@@ -34,6 +36,10 @@ export const routes = [
   {
     path: urls.favourites,
     component: FavouritesPage
+  },
+  {
+    path: urls.playlist,
+    component: PlaylistPage
   },
   {
     component: () => <Redirect to={urls.home} />

@@ -3,6 +3,7 @@ import * as auth from './auth';
 import * as user from './user';
 import * as tracks from './tracks';
 import * as player from './player';
+import * as playlists from './playlists';
 // import { store } from '../store';
 // import { setAccessToken } from "store/user";
 
@@ -43,5 +44,6 @@ export default {
   auth,
   user,
   tracks,
-  player
+  player,
+  playlists
 };

@@ -9,6 +9,9 @@ import { NavLink } from 'react-router-dom';
 import { urls } from 'routes';
 import propTypes from 'prop-types';
 import clsx from 'clsx';
+import { useQuery } from 'react-query';
+import api from 'api';
+import { reverse } from 'named-urls';
 
 const navigationItems = [
   { text: 'Strona główna', icon: HomeIcon, path: urls.home },
@@ -18,6 +21,11 @@ const navigationItems = [
 export const Sidebar = ({ className }) => {
   const userInfo = useSelector(selectUserInfo);
   const dispatch = useDispatch();
+
+  const { data: playlists } = useQuery(
+    ['playlists'],
+    () => api.playlists.getUserPlaylists({}),
+  );
 
   const handleLogoutClick = () => {
     dispatch(logout());
@@ -47,6 +55,15 @@ export const Sidebar = ({ className }) => {
           <LogoutIcon className={s.icon} />
           <span className={s.text}>Wyloguj</span>
         </button>
+      </div>
+
+      <div className={s.playlists}>
+        {playlists && playlists.items.map(playlist => (
+          <NavLink to={reverse(urls.playlist, { id: playlist.id })} className={s.playlist} key={playlist.id}>
+            <img src={playlist.images[0].url} className={s.image} alt={playlist.name} />
+            <p className={s.name}>{playlist.name}</p>
+          </NavLink>
+        ))}
       </div>
     </div>
   )

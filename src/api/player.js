@@ -12,3 +12,7 @@ export const startPlayback = async ({ uris, offset }) => (
     uris, offset
   }).then(res => res.data)
 )
+
+export const playPlaylist = async ({ uri, offset }) => (
+  client.put('me/player/play', { context_uri: uri, offset }).then(res => res.data)
+)

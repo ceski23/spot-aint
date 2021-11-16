@@ -84,4 +84,31 @@
       }
     }
   }
+
+  .playlists {
+    padding: 30px;
+
+    .playlist {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+
+      .image {
+        width: 35px;
+        height: 35px;
+      }
+
+      .name {
+        font-family: "Josefin Sans";
+        font-size: 18px;
+        font-weight: 600;
+        color: $text;
+        text-decoration: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 }
