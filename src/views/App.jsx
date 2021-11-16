@@ -18,7 +18,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('start update header');
     updateAuthHeader(accessToken);
     setLoading(false);
   }, [accessToken]);

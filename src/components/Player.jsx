@@ -16,7 +16,7 @@ import { useSpotify } from 'hooks/useSpotify';
 import useInterval from '@use-it/interval';
 import { selectAccessToken } from 'store/user';
 import api from 'api';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 export const Player = ({ className }) => {
   const accessToken = useSelector(selectAccessToken);
@@ -24,6 +24,7 @@ export const Player = ({ className }) => {
   const volume = useSelector(selectPlaybackVolume);
   const dispatch = useDispatch();
   const { player } = useSpotify(accessToken);
+  const queryClient = useQueryClient();
 
   const currentTrackId = useMemo(() => {
     return playbackState.current_track ? playbackState.current_track.id : undefined;
@@ -35,13 +36,19 @@ export const Player = ({ className }) => {
     { enabled: !!currentTrackId }
   );
 
-  useEffect(() => {
-    console.log('saved', trackSaved);
-  }, [trackSaved]);
+  const saveTrack = useMutation(api.tracks.saveTracks, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('currentSaved');
+      queryClient.invalidateQueries('saved');
+    }
+  });
 
-  useEffect(() => {
-    console.log('currentTrackId', currentTrackId);
-  }, [currentTrackId]);
+  const unsaveTrack = useMutation(api.tracks.unsaveTracks, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('currentSaved');
+      queryClient.invalidateQueries('saved');
+    }
+  });
 
   const handlePositionChange = (position) => {
     player.current.seek(position);
@@ -60,7 +67,7 @@ export const Player = ({ className }) => {
   }
 
   const handleToggleFavourite = () => {
-    // if (playbackState.current_track)
+    (trackSaved ? unsaveTrack : saveTrack).mutate({ ids: [currentTrackId] });
   }
 
   const handleVolumeChange = (volume) => {

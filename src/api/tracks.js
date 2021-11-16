@@ -1,7 +1,7 @@
 import { client } from "api";
 
-export const getUserSavedTracks = async ({ limit = 20, offset = 0 }) => (
-  client.get('me/tracks', { params: { limit, offset } }).then(res => res.data)
+export const getUserSavedTracks = async ({ limit = 20, offset = 0, market = 'from_token' }) => (
+  client.get('me/tracks', { params: { limit, offset, market } }).then(res => res.data)
 )
 
 export const saveTracks = async ({ ids }) => (

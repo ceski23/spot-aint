@@ -51,9 +51,11 @@
     .favourite {
       width: 30px;
       height: 30px;
+      cursor: pointer;
 
       &.saved {
-        color: $primary;
+        color: $text;
+        fill: $text;
       }
     }
   }

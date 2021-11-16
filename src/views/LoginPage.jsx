@@ -13,7 +13,7 @@ export const LoginPage = () => {
       redirect_uri: process.env.REACT_APP_SPOTIFY_REDIRECT_URI,
       code_challenge_method: 'S256',
       code_challenge: await generateCodeChallenge(code_verifier),
-      scope: ['streaming', 'user-read-email', 'user-read-private', 'user-library-read'].join(' ')
+      scope: ['streaming', 'user-read-email', 'user-read-private', 'user-library-read', 'user-library-modify'].join(' ')
     });
 
     window.sessionStorage.setItem('code_verifier', code_verifier);
