@@ -11,3 +11,9 @@ export const getPlaylist = async ({ id }) => (
 export const getPlaylistTracks = async ({ id, limit = 20, offset = 0 }) => (
   client.get(`playlists/${id}/tracks`, { params: { limit, offset } }).then(res => res.data)
 );
+
+export const getFeaturedPlaylists = async ({ limit = 20, offset = 0 }) => (
+  client.get('browse/featured-playlists', {
+    params: { limit, offset, country: 'PL', locale: 'pl_PL' }
+  }).then(res => res.data)
+);

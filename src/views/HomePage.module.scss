@@ -4,4 +4,49 @@
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+
+  .pageTitle {
+    font-size: 40px;
+    text-align: start;
+    width: 100%;
+    padding: 0 50px;
+    min-height: 48px;
+  }
+
+  .loadingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .loading {
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
+
+  .featuredPlaylists {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 50px;
+    padding: 20px 50px 50px 50px;
+
+    .playlist {
+      display: flex;
+      flex-direction: column;
+      color: unset;
+      text-decoration: none;
+
+      .name {
+        font-size: 25px;
+        margin: 0;
+        margin-top: 20px;
+      }
+
+      .image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 }
