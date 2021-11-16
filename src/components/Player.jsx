@@ -153,7 +153,7 @@ export const Player = ({ className }) => {
 
       <div className={s.volumeControl}>
         <VolumeDownIcon className={s.volumedown} />
-        <Slider min={0} max={100} value={Number.parseInt(volume * 100)} onValueChange={handleVolumeChange} />
+        <Slider min={0} max={100} value={Number.parseInt(volume)} onValueChange={handleVolumeChange} />
         <VolumeUpIcon className={s.volumeup} />
       </div>
     </div>
