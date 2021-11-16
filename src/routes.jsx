@@ -4,12 +4,14 @@ import { Redirect } from "react-router-dom"
 import { HomePage } from "views/HomePage"
 import { FavouritesPage } from "views/FavouritesPage"
 import { PlaylistPage } from "views/PlaylistPage"
+import { SearchPage } from "views/SearchPage"
 
 export const urls = {
   authorize: '/callback',
   home: '/',
   favourites: '/favourites',
-  playlist: '/playlist/:id'
+  playlist: '/playlist/:id',
+  search: '/search'
 }
 
 export const guestRoutes = [
@@ -40,6 +42,10 @@ export const routes = [
   {
     path: urls.playlist,
     component: PlaylistPage
+  },
+  {
+    path: urls.search,
+    component: SearchPage
   },
   {
     component: () => <Redirect to={urls.home} />

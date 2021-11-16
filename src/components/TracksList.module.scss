@@ -6,6 +6,16 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  
+  & > *:last-child {
+    padding-bottom: 50px;
+  }
+
+  &.alt {
+    .header {
+      grid-template-columns: 20px 3fr 2fr 60px;
+    }
+  }
 
   .tracks {
     display: flex;
@@ -33,7 +43,6 @@
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
-    margin-bottom: 30px;
 
     .page {
       color: $text;

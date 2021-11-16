@@ -1,0 +1,26 @@
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+
+  .pageTitle {
+    font-size: 40px;
+    text-align: start;
+    width: 100%;
+    padding: 0 50px;
+    min-height: 48px;
+  }
+
+  .searchBar {
+    width: calc(100% - 100px);
+    margin: 50px;
+    margin-top: 0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    font-family: "Josefin Sans";
+  }
+}

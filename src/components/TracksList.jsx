@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { useMemo } from 'react';
 
 export const TracksList = ({
-  className, tracks, isLoading, offset, limit, changeOffset, total, onTrackClick
+  className, tracks, isLoading, offset = 0, limit, changeOffset, total, onTrackClick, isAltTracks
 }) => {
   const currentPage = useMemo(() => (offset / limit) + 1, [offset, limit]);
 
@@ -17,12 +17,12 @@ export const TracksList = ({
   }
 
   return (
-    <div className={clsx(className, s.container)}>
+    <div className={clsx(className, s.container, { [s.alt]: isAltTracks })}>
       <div className={s.header}>
         <span className={s.center}>#</span>
         <span>Tytuł</span>
         <span>Album</span>
-        <span>Data dodania</span>
+        {!isAltTracks && <span>Data dodania</span>}
         <span className={s.center}><ClockIcon className={s.clockIcon} /></span>
       </div>
 
@@ -34,17 +34,26 @@ export const TracksList = ({
 
       <div className={s.tracks}>
         {tracks.length > 0 && tracks.map((item, index) => (
-          <Track
-            track={item.track}
-            key={item.track.id}
-            index={index + offset}
-            dateAdded={item.added_at}
-            onClick={() => onTrackClick(item.track)}
-          />
+          isAltTracks ? (
+            <Track
+              track={item}
+              key={item.id}
+              index={index + offset}
+              onClick={() => onTrackClick(item)}
+            />
+          ) : (
+            <Track
+              track={item.track}
+              key={item.track.id}
+              index={index + offset}
+              dateAdded={item.added_at}
+              onClick={() => onTrackClick(item.track)}
+            />
+          )
         ))}
       </div>
 
-      {!isLoading && (
+      {!isLoading && changeOffset && (
         <div className={s.pagination}>
           <button
             type='button'
@@ -84,7 +93,8 @@ TracksList.propTypes = {
   isLoading: propTypes.bool,
   limit: propTypes.number.isRequired,
   total: propTypes.number.isRequired,
-  offset: propTypes.number.isRequired,
-  changeOffset: propTypes.func.isRequired,
-  onTrackClick: propTypes.func.isRequired
+  offset: propTypes.number,
+  changeOffset: propTypes.func,
+  onTrackClick: propTypes.func.isRequired,
+  isAltTracks: propTypes.bool
 }

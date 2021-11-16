@@ -3,6 +3,7 @@ import { ReactComponent as SpotifyLogo } from 'assets/icons/spotify.svg';
 import { ReactComponent as HomeIcon } from 'assets/icons/home.svg';
 import { ReactComponent as LogoutIcon } from 'assets/icons/logout.svg';
 import { ReactComponent as FavouritesIcon } from 'assets/icons/favourites.svg';
+import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectUserInfo } from 'store/user';
 import { NavLink } from 'react-router-dom';
@@ -15,6 +16,7 @@ import { reverse } from 'named-urls';
 
 const navigationItems = [
   { text: 'Strona główna', icon: HomeIcon, path: urls.home },
+  { text: 'Wyszukiwanie', icon: SearchIcon, path: urls.search },
   { text: 'Ulubione', icon: FavouritesIcon, path: urls.favourites },
 ];
 

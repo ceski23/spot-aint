@@ -13,6 +13,10 @@
   font-size: 18px;
   border-radius: 10px;
 
+  &.alt {
+    grid-template-columns: 20px 3fr 2fr 60px;
+  }
+
   &:hover {
     background-color: $background-2;
   }

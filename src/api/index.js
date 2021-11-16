@@ -4,6 +4,7 @@ import * as user from './user';
 import * as tracks from './tracks';
 import * as player from './player';
 import * as playlists from './playlists';
+import * as search from './search';
 // import { store } from '../store';
 // import { setAccessToken } from "store/user";
 
@@ -45,5 +46,6 @@ export default {
   user,
   tracks,
   player,
-  playlists
+  playlists,
+  search
 };
