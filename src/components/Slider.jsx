@@ -26,7 +26,8 @@ export const Slider = ({
 
   useEffect(() => {
     if (internalValue !== value && !isChanging) setInternalValue(value);
-  }, [value, internalValue, isChanging]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, internalValue]);
 
   return (
     <input
