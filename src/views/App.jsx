@@ -1,7 +1,7 @@
 import api, { updateAuthHeader } from 'api';
 import { Player } from 'components/Player';
 import { Sidebar } from 'components/Sidebar';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import { BrowserRouter } from 'react-router-dom';
@@ -17,7 +17,7 @@ const App = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     updateAuthHeader(accessToken);
     setLoading(false);
   }, [accessToken]);
