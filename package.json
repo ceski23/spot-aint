@@ -2,6 +2,7 @@
   "name": "spot-aint",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ceski23.github.io/spot-aint",
   "dependencies": {
     "@fontsource/josefin-sans": "^4.5.0",
     "@reduxjs/toolkit": "^1.6.2",
