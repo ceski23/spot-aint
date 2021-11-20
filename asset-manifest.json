@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/spot-aint/static/css/main.de405295.chunk.css",
+    "main.js": "/spot-aint/static/js/main.2c60a0b4.chunk.js",
+    "main.js.map": "/spot-aint/static/js/main.2c60a0b4.chunk.js.map",
+    "runtime-main.js": "/spot-aint/static/js/runtime-main.7ec5f324.js",
+    "runtime-main.js.map": "/spot-aint/static/js/runtime-main.7ec5f324.js.map",
+    "static/css/2.0b20dae0.chunk.css": "/spot-aint/static/css/2.0b20dae0.chunk.css",
+    "static/js/2.8cb2c474.chunk.js": "/spot-aint/static/js/2.8cb2c474.chunk.js",
+    "static/js/2.8cb2c474.chunk.js.map": "/spot-aint/static/js/2.8cb2c474.chunk.js.map",
+    "index.html": "/spot-aint/index.html",
+    "static/css/2.0b20dae0.chunk.css.map": "/spot-aint/static/css/2.0b20dae0.chunk.css.map",
+    "static/css/main.de405295.chunk.css.map": "/spot-aint/static/css/main.de405295.chunk.css.map",
+    "static/js/2.8cb2c474.chunk.js.LICENSE.txt": "/spot-aint/static/js/2.8cb2c474.chunk.js.LICENSE.txt",
+    "static/media/clock.7fe7d98f.svg": "/spot-aint/static/media/clock.7fe7d98f.svg",
+    "static/media/favourites.5f6ea71f.svg": "/spot-aint/static/media/favourites.5f6ea71f.svg",
+    "static/media/home.c72b3a47.svg": "/spot-aint/static/media/home.c72b3a47.svg",
+    "static/media/400.css": "/spot-aint/static/media/josefin-sans-vietnamese-400-normal.7cc7e94e.woff2",
+    "static/media/600.css": "/spot-aint/static/media/josefin-sans-vietnamese-600-normal.fe94ac06.woff2",
+    "static/media/700.css": "/spot-aint/static/media/josefin-sans-vietnamese-700-normal.91400230.woff2",
+    "static/media/logout.0aab77a2.svg": "/spot-aint/static/media/logout.0aab77a2.svg",
+    "static/media/next.6133da93.svg": "/spot-aint/static/media/next.6133da93.svg",
+    "static/media/pause.ae7baee5.svg": "/spot-aint/static/media/pause.ae7baee5.svg",
+    "static/media/play.9f31f21a.svg": "/spot-aint/static/media/play.9f31f21a.svg",
+    "static/media/prev.309133d8.svg": "/spot-aint/static/media/prev.309133d8.svg",
+    "static/media/search.622a6cd6.svg": "/spot-aint/static/media/search.622a6cd6.svg",
+    "static/media/spotify.69f843e5.svg": "/spot-aint/static/media/spotify.69f843e5.svg",
+    "static/media/volume-down.c52a6fcb.svg": "/spot-aint/static/media/volume-down.c52a6fcb.svg",
+    "static/media/volume-up.a5d33cfd.svg": "/spot-aint/static/media/volume-up.a5d33cfd.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ec5f324.js",
+    "static/css/2.0b20dae0.chunk.css",
+    "static/js/2.8cb2c474.chunk.js",
+    "static/css/main.de405295.chunk.css",
+    "static/js/main.2c60a0b4.chunk.js"
+  ]
+}
