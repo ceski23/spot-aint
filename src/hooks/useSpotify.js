@@ -48,6 +48,10 @@ export const useSpotify = (accessToken) => {
 
   useEffect(() => {
     setupPlayer();
+
+    return () => {
+      if (player.current) player.current.disconnect();
+    }
   }, [setupPlayer]);
 
   return {
