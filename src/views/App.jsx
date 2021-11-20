@@ -4,7 +4,7 @@ import { Sidebar } from 'components/Sidebar';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { guestRoutes, routes } from 'routes';
 import {
   selectAccessToken,
@@ -29,7 +29,7 @@ const App = () => {
   }, [accessToken, dispatch]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={s.container}>
         {!accessToken ? renderRoutes(guestRoutes) : (!loading) ? (
           <>
@@ -39,7 +39,7 @@ const App = () => {
           </>
         ) : null}
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

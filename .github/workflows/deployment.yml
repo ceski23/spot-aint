@@ -3,6 +3,8 @@ on: [push]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_SPOTIFY_REDIRECT_URI: https://ceski23.github.io/spot-aint/
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1

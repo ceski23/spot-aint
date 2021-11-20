@@ -7,7 +7,7 @@ import { PlaylistPage } from "views/PlaylistPage"
 import { SearchPage } from "views/SearchPage"
 
 export const urls = {
-  authorize: '/callback',
+  authorize: '/',
   home: '/',
   favourites: '/favourites',
   playlist: '/playlist/:id',
@@ -17,7 +17,10 @@ export const urls = {
 export const guestRoutes = [
   {
     path: urls.authorize,
-    component: AuthCallback,
+    component: () => {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('code') ? <AuthCallback /> : <LoginPage />
+    }
   },
   {
     path: urls.home,

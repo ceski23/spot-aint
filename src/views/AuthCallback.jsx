@@ -11,6 +11,10 @@ export const AuthCallback = () => {
       const { access_token, refresh_token } = res;
       dispatch(setAuthData({ access_token, refresh_token }));
     });
+
+    const newLocation = new URL(window.location);
+    newLocation.search = '';
+    window.history.replaceState({}, '', newLocation);
   }, [dispatch]);
 
   return <></>
