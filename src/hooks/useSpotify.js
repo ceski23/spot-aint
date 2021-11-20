@@ -24,6 +24,7 @@ export const useSpotify = (accessToken) => {
         player.current = new sdk.Player({
           name: 'spot-aint',
           getOAuthToken: (callback: (token: string) => void) => callback(accessToken),
+          volume: 0.5
         });
 
         player.current.on('initialization_error', ({ message }: any) => { alert(message); });

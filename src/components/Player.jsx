@@ -71,8 +71,9 @@ export const Player = ({ className }) => {
   }
 
   const handleVolumeChange = (volume) => {
-    dispatch(setVolume(volume));
-    player.current.setVolume(volume / 100);
+    const vol = Number.parseFloat(volume);
+    dispatch(setVolume(vol));
+    player.current.setVolume(vol);
   }
 
   useEffect(() => {
@@ -153,7 +154,7 @@ export const Player = ({ className }) => {
 
       <div className={s.volumeControl}>
         <VolumeDownIcon className={s.volumedown} />
-        <Slider min={0} max={100} value={Number.parseInt(volume)} onValueChange={handleVolumeChange} />
+        <Slider min={0} max={1} step={0.05} value={volume} onValueChange={handleVolumeChange} />
         <VolumeUpIcon className={s.volumeup} />
       </div>
     </div>
