@@ -9,7 +9,8 @@ const initialState = {
   },
   info: {
     display_name: undefined,
-    image: undefined
+    image: undefined,
+    premium: false
   }
 }
 
@@ -27,7 +28,8 @@ const slice = createSlice({
     setUserInfo: (state, { payload }) => {
       state.info = {
         display_name: payload.display_name,
-        image: payload.images[0].url
+        image: payload.images[0].url,
+        premium: payload.product === 'premium'
       }
     },
     logout: (state) => {

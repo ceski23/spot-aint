@@ -8,6 +8,7 @@ import { HashRouter } from 'react-router-dom';
 import { guestRoutes, routes } from 'routes';
 import {
   selectAccessToken,
+  selectUserInfo,
   setUserInfo
 } from 'store/user';
 import s from './App.module.scss';
@@ -16,6 +17,7 @@ const App = () => {
   const accessToken = useSelector(selectAccessToken);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const { premium } = useSelector(selectUserInfo);
 
   useLayoutEffect(() => {
     updateAuthHeader(accessToken);
@@ -35,7 +37,7 @@ const App = () => {
           <>
             <Sidebar className={s.sidebar} />
             {renderRoutes(routes)}
-            <Player className={s.player} />
+            {premium && <Player className={s.player} />}
           </>
         ) : null}
       </div>

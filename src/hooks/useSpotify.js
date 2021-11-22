@@ -29,7 +29,7 @@ export const useSpotify = (accessToken) => {
 
         player.current.on('initialization_error', ({ message }: any) => { alert(message); });
         player.current.on('authentication_error', ({ message }: any) => { alert(message); });
-        player.current.on('account_error', ({ message }: any) => { alert(message); });
+        player.current.on('account_error', () => { alert('Odtwarzanie muzyki jest dostępne tylko dla użytkowników z kontem premium'); });
         player.current.on('playback_error', ({ message }: any) => { alert(message); });
 
         const connected = await player.current.connect();
