@@ -17,10 +17,10 @@ const App = () => {
   const accessToken = useSelector(selectAccessToken);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  const { premium } = useSelector(selectUserInfo);
+  const userInfo = useSelector(selectUserInfo);
 
   useEffect(() => {
-    if (accessToken && !premium) alert('Odtwarzanie muzyki jest dostępne tylko dla użytkowników z kontem premium');
+    if (accessToken && userInfo?.premium === false) alert('Odtwarzanie muzyki jest dostępne tylko dla użytkowników z kontem premium');
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken]);
 
@@ -42,7 +42,7 @@ const App = () => {
           <>
             <Sidebar className={s.sidebar} />
             {renderRoutes(routes)}
-            {premium && <Player className={s.player} />}
+            {userInfo?.premium && <Player className={s.player} />}
           </>
         ) : null}
       </div>
