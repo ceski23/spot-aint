@@ -27,6 +27,9 @@ client.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       store.dispatch(setAccessToken(''));
     }
+    else if (error.response && error.response.status === 403) {
+      alert('Ta funkcja jest dostępna tylko dla użytkowników z kontem premium');
+    }
     
     return Promise.reject(error);
   }

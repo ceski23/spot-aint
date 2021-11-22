@@ -10,9 +10,9 @@ export const transferPlayback = async ({ deviceId }) => (
 export const startPlayback = async ({ uris, offset }) => (
   client.put('me/player/play', {
     uris, offset
-  }).then(res => res.data)
+  }).then(res => res.data).catch(() => {})
 )
 
 export const playPlaylist = async ({ uri, offset }) => (
-  client.put('me/player/play', { context_uri: uri, offset }).then(res => res.data)
+  client.put('me/player/play', { context_uri: uri, offset }).then(res => res.data).catch(() => {})
 )
