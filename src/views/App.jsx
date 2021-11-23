@@ -21,8 +21,7 @@ const App = () => {
 
   useEffect(() => {
     if (accessToken && userInfo?.premium === false) alert('Odtwarzanie muzyki jest dostępne tylko dla użytkowników z kontem premium');
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [accessToken]);
+  }, [accessToken, userInfo?.premium]);
 
   useLayoutEffect(() => {
     updateAuthHeader(accessToken);
