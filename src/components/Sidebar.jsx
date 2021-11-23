@@ -41,7 +41,7 @@ export const Sidebar = ({ className }) => {
       </div>
 
       <div className={s.user}>
-        {userInfo.images && <img src={userInfo.image} className={s.image} alt={userInfo.display_name} />}
+        {userInfo.image && <img src={userInfo.image} className={s.image} alt={userInfo.display_name} />}
         <p className={s.name}>{userInfo.display_name}</p>
       </div>
 
