@@ -10,7 +10,15 @@ const initialState = {
   info: {
     display_name: undefined,
     image: undefined,
-    premium: false
+    premium: undefined
+  }
+}
+
+const isPremium = (accountType) => {
+  switch (accountType) {
+    case 'premium': return true;
+    case 'open': return false;
+    default: return undefined;
   }
 }
 
@@ -29,13 +37,12 @@ const slice = createSlice({
       state.info = {
         display_name: payload.display_name,
         image: payload.images?.[0]?.url,
-        premium: payload.product === 'premium'
+        premium: isPremium(payload.product)
       }
     },
     logout: (state) => {
-      state.auth.access_token = undefined;
-      state.auth.refresh_token = undefined;
-      state.info = undefined;
+      state.auth = initialState.auth;
+      state.info = initialState.info;
     }
   }
 });
